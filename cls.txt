@@ -1,7 +1,16 @@
+http://theerlangelist.com/article/beyond_taskasync
+________________________________________________________________
 edit mix.exs ... add deps
 mix deps.get
 ... test:
 iex -S mix
+... to recompile a module while in iex:
+c("lib/parallel_via_task.ex")
+or use reload module:
+r AsyncAwait ... seems to work for all modules in a file
+... get elapsed time:
+Benchmark.measure(fn -> AsyncAwait.run end)
+
 response = HTTPotion.get "http://cleesmith.github.io/"
 HTTPotion.Response.success?(response)
 response.headers
